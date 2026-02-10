@@ -30,8 +30,8 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Professionell läxhjälp från en studiecoach med dokumenterad framgång 
-            och genuin passion för lärande.
+            Två bröder som elitsatsar mot OS i segling – och hjälper dig nå toppen 
+            i skolan med professionell läxhjälp.
           </p>
 
           {/* CTA Buttons */}

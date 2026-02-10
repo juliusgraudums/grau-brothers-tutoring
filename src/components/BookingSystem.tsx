@@ -103,7 +103,7 @@ const BookingSystem = () => {
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Välj en tid som passar dig. Alla sessioner är 60 minuter och kan genomföras 
-              online eller på plats.
+              online eller på plats i Motala. <span className="font-semibold text-foreground">300 kr/timme.</span>
             </p>
           </div>
 
