@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -6,35 +7,35 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Logo */}
             <div>
-              <span className="font-display text-2xl font-bold text-primary-foreground">
+              <Link to="/" className="font-display text-2xl font-bold text-primary-foreground">
                 Grau<span className="text-secondary">Brothers</span>
-              </span>
+              </Link>
               <p className="text-primary-foreground/60 text-sm mt-2">
-                Professionell läxhjälp
+                ILCA Segling · Vägen mot OS
               </p>
             </div>
 
-            {/* Links */}
             <div className="flex gap-8">
-              <a 
-                href="#about" 
+              <Link 
+                to="/" 
                 className="text-primary-foreground/70 hover:text-secondary transition-colors"
               >
-                Om oss
-              </a>
-              <a 
-                href="#booking" 
+                Segling
+              </Link>
+              <Link 
+                to="/laxhjalp" 
                 className="text-primary-foreground/70 hover:text-secondary transition-colors"
               >
-                Boka tid
-              </a>
+                Läxhjälp
+              </Link>
               <a 
-                href="#contact" 
+                href="https://instagram.com/jullegrau" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-primary-foreground/70 hover:text-secondary transition-colors"
               >
-                Kontakt
+                Instagram
               </a>
             </div>
 

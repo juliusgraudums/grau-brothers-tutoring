@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,55 +34,67 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a 
-            href="#" 
+          <Link 
+            to="/" 
             className={cn(
               "font-display text-2xl font-bold transition-colors",
               isScrolled ? "text-foreground" : "text-primary-foreground"
             )}
           >
             Grau<span className="text-secondary">Brothers</span>
-          </a>
+          </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollTo("about")}
-              className={cn(
-                "font-medium transition-colors hover:text-secondary",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              )}
-            >
-              Om oss
-            </button>
-            <button
-              onClick={() => scrollTo("booking")}
-              className={cn(
-                "font-medium transition-colors hover:text-secondary",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              )}
-            >
-              Boka tid
-            </button>
-            <button
-              onClick={() => scrollTo("contact")}
-              className={cn(
-                "font-medium transition-colors hover:text-secondary",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              )}
-            >
-              Kontakt
-            </button>
+            {isHome && (
+              <>
+                <button
+                  onClick={() => scrollTo("mission")}
+                  className={cn(
+                    "font-medium transition-colors hover:text-secondary",
+                    isScrolled ? "text-foreground" : "text-primary-foreground"
+                  )}
+                >
+                  Vår resa
+                </button>
+                <button
+                  onClick={() => scrollTo("about")}
+                  className={cn(
+                    "font-medium transition-colors hover:text-secondary",
+                    isScrolled ? "text-foreground" : "text-primary-foreground"
+                  )}
+                >
+                  Om oss
+                </button>
+                <button
+                  onClick={() => scrollTo("contact")}
+                  className={cn(
+                    "font-medium transition-colors hover:text-secondary",
+                    isScrolled ? "text-foreground" : "text-primary-foreground"
+                  )}
+                >
+                  Kontakt
+                </button>
+              </>
+            )}
+            {!isHome && (
+              <Link
+                to="/"
+                className={cn(
+                  "font-medium transition-colors hover:text-secondary",
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                )}
+              >
+                Hem
+              </Link>
+            )}
             <Button
-              onClick={() => scrollTo("booking")}
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full"
+              asChild
             >
-              Boka nu
+              <Link to="/laxhjalp">Läxhjälp</Link>
             </Button>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
@@ -91,42 +106,56 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border/20 pt-4">
             <div className="flex flex-col gap-4">
-              <button
-                onClick={() => scrollTo("about")}
-                className={cn(
-                  "font-medium text-left transition-colors hover:text-secondary",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                )}
-              >
-                Om oss
-              </button>
-              <button
-                onClick={() => scrollTo("booking")}
-                className={cn(
-                  "font-medium text-left transition-colors hover:text-secondary",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                )}
-              >
-                Boka tid
-              </button>
-              <button
-                onClick={() => scrollTo("contact")}
-                className={cn(
-                  "font-medium text-left transition-colors hover:text-secondary",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                )}
-              >
-                Kontakt
-              </button>
+              {isHome ? (
+                <>
+                  <button
+                    onClick={() => scrollTo("mission")}
+                    className={cn(
+                      "font-medium text-left transition-colors hover:text-secondary",
+                      isScrolled ? "text-foreground" : "text-primary-foreground"
+                    )}
+                  >
+                    Vår resa
+                  </button>
+                  <button
+                    onClick={() => scrollTo("about")}
+                    className={cn(
+                      "font-medium text-left transition-colors hover:text-secondary",
+                      isScrolled ? "text-foreground" : "text-primary-foreground"
+                    )}
+                  >
+                    Om oss
+                  </button>
+                  <button
+                    onClick={() => scrollTo("contact")}
+                    className={cn(
+                      "font-medium text-left transition-colors hover:text-secondary",
+                      isScrolled ? "text-foreground" : "text-primary-foreground"
+                    )}
+                  >
+                    Kontakt
+                  </button>
+                </>
+              ) : (
+                <Link
+                  to="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "font-medium text-left transition-colors hover:text-secondary",
+                    isScrolled ? "text-foreground" : "text-primary-foreground"
+                  )}
+                >
+                  Hem
+                </Link>
+              )}
               <Button
-                onClick={() => scrollTo("booking")}
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full w-full"
+                asChild
               >
-                Boka nu
+                <Link to="/laxhjalp" onClick={() => setIsMobileMenuOpen(false)}>Läxhjälp</Link>
               </Button>
             </div>
           </div>

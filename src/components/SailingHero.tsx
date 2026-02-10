@@ -1,0 +1,71 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Star, Anchor } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const SailingHero = () => {
+  return (
+    <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden">
+      <div className="absolute top-20 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 py-20 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
+            <Anchor className="w-4 h-4 text-secondary" />
+            <span className="text-primary-foreground/90 text-sm font-medium">
+              ILCA Segling · Vägen mot OS
+            </span>
+          </div>
+
+          <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6 animate-slide-up">
+            Vi siktar på
+            <span className="block text-gradient mt-2">Olympiska Spelen</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
+            Två bröder från Motala med en gemensam dröm – att representera Sverige 
+            i ILCA-segling på de Olympiska Spelen.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <Button 
+              size="lg" 
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold"
+              onClick={() => document.getElementById("mission")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Vår resa
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6 rounded-full"
+              asChild
+            >
+              <Link to="/laxhjalp">
+                Läxhjälp
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-primary-foreground/10 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+            <div>
+              <p className="text-4xl font-display font-bold text-secondary">ILCA</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Seglingsklass</p>
+            </div>
+            <div>
+              <p className="text-4xl font-display font-bold text-primary-foreground">OS</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Målet</p>
+            </div>
+            <div>
+              <p className="text-4xl font-display font-bold text-primary-foreground">2</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Bröder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SailingHero;
