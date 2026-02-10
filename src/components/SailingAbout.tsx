@@ -1,4 +1,6 @@
 import { Ship, Trophy, Compass } from "lucide-react";
+import brothers from "@/assets/brothers.jpeg";
+import sailingAction from "@/assets/sailing-action.jpeg";
 
 const SailingAbout = () => {
   return (
@@ -14,6 +16,16 @@ const SailingAbout = () => {
             </p>
           </div>
 
+          {/* Photo section */}
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <div className="rounded-2xl overflow-hidden shadow-medium">
+              <img src={brothers} alt="Grau Brothers" className="w-full h-80 object-cover object-top" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-medium">
+              <img src={sailingAction} alt="Segling i tuffa förhållanden" className="w-full h-80 object-cover" />
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
               <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
@@ -24,7 +36,7 @@ const SailingAbout = () => {
               </h3>
               <p className="text-muted-foreground">
                 Vi tävlar i ILCA-klassen – en av de mest prestigefyllda 
-                olympiska seglingsklasserna i världen.
+                seglingsklasserna i världen.
               </p>
             </div>
 
