@@ -29,9 +29,9 @@ const Contact = () => {
                 <MessageCircle className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Sociala medier</h3>
-              <p className="text-muted-foreground">
-                @graubrothers
-              </p>
+              <a href="https://instagram.com/jullegrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors">
+                @jullegrau
+              </a>
             </div>
 
             <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
@@ -40,7 +40,7 @@ const Contact = () => {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Plats</h3>
               <p className="text-muted-foreground">
-                Online & Sverige
+                Online & Motala
               </p>
             </div>
           </div>
