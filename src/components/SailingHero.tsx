@@ -1,30 +1,33 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Anchor } from "lucide-react";
+import { ArrowRight, Anchor } from "lucide-react";
 import { Link } from "react-router-dom";
+import sailingAction from "@/assets/sailing-action.jpeg";
 
 const SailingHero = () => {
   return (
     <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden">
-      <div className="absolute top-20 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      {/* Background image overlay */}
+      <div className="absolute inset-0">
+        <img src={sailingAction} alt="ILCA segling" className="w-full h-full object-cover opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
       
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
             <Anchor className="w-4 h-4 text-secondary" />
             <span className="text-primary-foreground/90 text-sm font-medium">
-              ILCA Segling · Vägen mot OS
+              ILCA Segling · Motala
             </span>
           </div>
 
           <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6 animate-slide-up">
-            Vi siktar på
-            <span className="block text-gradient mt-2">Olympiska Spelen</span>
+            Vi lever för
+            <span className="block text-gradient mt-2">seglingen</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Två bröder från Motala med en gemensam dröm – att representera Sverige 
-            i ILCA-segling på de Olympiska Spelen.
+            Två bröder från Motala med en gemensam dröm – att tävla på den internationella scenen i ILCA-segling.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
@@ -54,8 +57,8 @@ const SailingHero = () => {
               <p className="text-primary-foreground/60 text-sm mt-1">Seglingsklass</p>
             </div>
             <div>
-              <p className="text-4xl font-display font-bold text-primary-foreground">OS</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Målet</p>
+              <p className="text-4xl font-display font-bold text-primary-foreground">Motala</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Hemmabas</p>
             </div>
             <div>
               <p className="text-4xl font-display font-bold text-primary-foreground">2</p>
