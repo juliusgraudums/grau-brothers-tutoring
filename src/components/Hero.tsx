@@ -18,7 +18,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
             <Star className="w-4 h-4 text-secondary fill-secondary" />
             <span className="text-primary-foreground/90 text-sm font-medium">
-              A i samtliga ämnen på gymnasiet
+              Vi har själva A i samtliga ämnen på gymnasiet
             </span>
           </div>
 
@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-primary-foreground/10 animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <div>
               <p className="text-4xl font-display font-bold text-secondary">A</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Alla ämnen</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Våra betyg</p>
             </div>
             <div>
               <p className="text-4xl font-display font-bold text-primary-foreground">100%</p>

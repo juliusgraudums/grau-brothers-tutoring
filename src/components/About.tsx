@@ -47,8 +47,8 @@ const About = () => {
                 Dokumenterad framgång
               </h3>
               <p className="text-muted-foreground">
-                A i samtliga ämnen på gymnasiet med djup förståelse för matematik, 
-                fysik och naturvetenskap.
+                Vi har själva A i samtliga ämnen på gymnasiet, med djup förståelse 
+                för matematik, fysik och naturvetenskap.
               </p>
             </div>
 
