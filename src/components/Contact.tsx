@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, MapPin } from "lucide-react";
+import { Mail, MessageCircle, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
@@ -13,7 +13,16 @@ const Contact = () => {
             Tveka inte att höra av dig. Vi svarar så snart vi kan!
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
+              <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Phone className="w-6 h-6 text-secondary" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">Telefon</h3>
+              <a href="tel:+46763102236" className="text-muted-foreground hover:text-secondary transition-colors">
+                +46 76 310 22 36
+              </a>
+            </div>
             <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
               <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-secondary" />
