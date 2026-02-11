@@ -10,7 +10,7 @@ const Contact = () => {
             Har du frågor?
           </h2>
           <p className="text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
-            Tveka inte att höra av dig. Vi svarar så snart vi kan!
+            Tveka inte att höra av dig. Jag svarar så snart jag kan!
           </p>
 
           <div className="grid md:grid-cols-4 gap-8 mb-12">

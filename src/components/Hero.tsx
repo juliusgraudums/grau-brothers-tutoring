@@ -18,7 +18,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
             <Star className="w-4 h-4 text-secondary fill-secondary" />
             <span className="text-primary-foreground/90 text-sm font-medium">
-              Vi har själva A i samtliga ämnen på gymnasiet
+              Julius Graudums · A i samtliga ämnen på gymnasiet
             </span>
           </div>
 
@@ -30,8 +30,8 @@ const Hero = () => {
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Två bröder som elitsatsar mot OS i segling – och hjälper dig nå toppen 
-            i skolan med professionell läxhjälp.
+            Jag är Julius Graudums – en av bröderna bakom Grau Brothers. Vid sidan av 
+            min elitsatsning i segling hjälper jag dig nå toppen i skolan.
           </p>
 
           {/* CTA Buttons */}

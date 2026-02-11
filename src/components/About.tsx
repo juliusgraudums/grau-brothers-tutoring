@@ -11,7 +11,7 @@ const About = () => {
               Om Grau Brothers
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Vi är två bröder med en passion för utbildning och att hjälpa andra att lyckas.
+              Jag är Julius Graudums, en av bröderna i Grau Brothers, med en passion för att hjälpa andra lyckas i skolan.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ const About = () => {
                 Dokumenterad framgång
               </h3>
               <p className="text-muted-foreground">
-                Vi har själva A i samtliga ämnen på gymnasiet, med djup förståelse 
+                Jag har själv A i samtliga ämnen på gymnasiet, med djup förståelse 
                 för matematik, fysik och naturvetenskap.
               </p>
             </div>
@@ -60,7 +60,7 @@ const About = () => {
                 Personlig approach
               </h3>
               <p className="text-muted-foreground">
-                Varje elev är unik. Vi anpassar undervisningen efter dina behov och 
+                Varje elev är unik. Jag anpassar undervisningen efter dina behov och 
                 din inlärningsstil.
               </p>
             </div>
@@ -73,7 +73,7 @@ const About = () => {
                 Stort tålamod
               </h3>
               <p className="text-muted-foreground">
-                Vi tar oss tid att förklara tills du verkligen förstår. Inga dumma 
+                Jag tar mig tid att förklara tills du verkligen förstår. Inga dumma 
                 frågor – bara lärande.
               </p>
             </div>
