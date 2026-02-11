@@ -19,7 +19,7 @@ const SailingAbout = () => {
           {/* Photo section */}
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             <div className="rounded-2xl overflow-hidden shadow-medium">
-              <img src={brothers} alt="Grau Brothers" className="w-full h-80 object-cover object-top" />
+              <img src={brothers} alt="Grau Brothers" className="w-full h-80 object-cover object-center" />
             </div>
             <div className="rounded-2xl overflow-hidden shadow-medium">
               <img src={sailingAction} alt="Segling i tuffa förhållanden" className="w-full h-80 object-cover" />
