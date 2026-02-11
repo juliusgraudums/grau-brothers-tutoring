@@ -65,8 +65,8 @@ const Hero = () => {
               <p className="text-primary-foreground/60 text-sm mt-1">Nöjda elever</p>
             </div>
             <div>
-              <p className="text-4xl font-display font-bold text-primary-foreground">5+</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Års erfarenhet</p>
+              <p className="text-4xl font-display font-bold text-primary-foreground">∞</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Tålamod</p>
             </div>
           </div>
         </div>
