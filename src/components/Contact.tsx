@@ -28,7 +28,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">E-post</h3>
-              <a href="mailto:kontakt@graubrothers.se" className="text-muted-foreground hover:text-secondary transition-colors">
+              <a href="mailto:kontakt@graubrothers.se" className="text-muted-foreground hover:text-secondary transition-colors text-sm break-all">
                 kontakt@graubrothers.se
               </a>
             </div>
