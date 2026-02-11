@@ -12,7 +12,7 @@ const SailingAbout = () => {
               Om Grau Brothers
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Två bröder från Motala som delar en passion för segling och tävling på elitnivå.
+              Två bröder från Ingarö som delar en passion för segling och tävling på elitnivå.
             </p>
           </div>
 
@@ -58,11 +58,11 @@ const SailingAbout = () => {
                 <Compass className="w-7 h-7 text-secondary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-                Motala-andan
+                Ingarö & Motala
               </h3>
               <p className="text-muted-foreground">
-                Uppväxta vid Vättern med vinden i ryggen. Seglingen har alltid 
-                varit en del av vilka vi är.
+                Uppväxta på Ingarö med Östersjön utanför knuten, och fyra år på seglargymnasiet 
+                i Motala vid Vättern. Seglingen har alltid varit en del av vilka vi är.
               </p>
             </div>
           </div>

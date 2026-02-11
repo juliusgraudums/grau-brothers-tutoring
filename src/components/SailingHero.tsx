@@ -17,7 +17,7 @@ const SailingHero = () => {
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
             <Anchor className="w-4 h-4 text-secondary" />
             <span className="text-primary-foreground/90 text-sm font-medium">
-              ILCA Segling · Motala
+              ILCA Segling · Ingarö
             </span>
           </div>
 
@@ -27,7 +27,7 @@ const SailingHero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Två bröder från Motala med en gemensam dröm – att tävla på den internationella scenen i ILCA-segling.
+            Två bröder från Ingarö med en gemensam dröm – att tävla på den internationella scenen i ILCA-segling.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
@@ -57,7 +57,7 @@ const SailingHero = () => {
               <p className="text-primary-foreground/60 text-sm mt-1">Seglingsklass</p>
             </div>
             <div>
-              <p className="text-4xl font-display font-bold text-primary-foreground">Motala</p>
+              <p className="text-4xl font-display font-bold text-primary-foreground">Ingarö</p>
               <p className="text-primary-foreground/60 text-sm mt-1">Hemmabas</p>
             </div>
             <div>
