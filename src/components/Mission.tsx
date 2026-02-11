@@ -25,9 +25,10 @@ const Mission = () => {
                 Med drömmen om att <span className="text-gradient">tävla i världstoppen</span>
               </h3>
               <p className="text-primary-foreground/80 text-lg leading-relaxed mb-6">
-                Grau Brothers är två bröder som elitsatsar i ILCA-segling. Vi tränar dagligen 
-                och tävlar internationellt med siktet inställt på att nå så långt som möjligt. 
-                OS är den stora drömmen – och vi jobbar hårt varje dag för att komma närmare.
+                Grau Brothers är två bröder från Ingarö som elitsatsar i ILCA-segling. Efter fyra år 
+                på seglargymnasiet i Motala tränar vi dagligen och tävlar internationellt med siktet 
+                inställt på att nå så långt som möjligt. OS är den stora drömmen – och vi jobbar 
+                hårt varje dag för att komma närmare.
               </p>
               <p className="text-primary-foreground/80 text-lg leading-relaxed">
                 Vid sidan av seglingen erbjuder vi läxhjälp – samma fokus och disciplin 
