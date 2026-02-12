@@ -38,8 +38,14 @@ const Contact = () => {
                 <MessageCircle className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Sociala medier</h3>
-              <a href="https://instagram.com/jullegrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors">
+              <a href="https://instagram.com/jullegrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
                 @jullegrau
+              </a>
+              <a href="https://instagram.com/marregrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
+                @marregrau
+              </a>
+              <a href="https://tiktok.com/@grau.brothers" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
+                TikTok
               </a>
             </div>
 

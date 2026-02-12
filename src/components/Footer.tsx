@@ -33,7 +33,23 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-primary-foreground/70 hover:text-secondary transition-colors"
               >
-                Instagram
+                @jullegrau
+              </a>
+              <a 
+                href="https://instagram.com/marregrau" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-secondary transition-colors"
+              >
+                @marregrau
+              </a>
+              <a 
+                href="https://tiktok.com/@grau.brothers" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-secondary transition-colors"
+              >
+                TikTok
               </a>
             </div>
 
