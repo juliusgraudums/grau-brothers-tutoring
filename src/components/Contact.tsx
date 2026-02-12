@@ -38,15 +38,17 @@ const Contact = () => {
                 <MessageCircle className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Sociala medier</h3>
-              <a href="https://instagram.com/jullegrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
-                @jullegrau
-              </a>
-              <a href="https://instagram.com/marregrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
-                @marregrau
-              </a>
-              <a href="https://tiktok.com/@grau.brothers" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
-                TikTok
-              </a>
+              <div className="flex flex-col gap-1">
+                <a href="https://instagram.com/jullegrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
+                  IG @jullegrau
+                </a>
+                <a href="https://instagram.com/marregrau" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
+                  IG @marregrau
+                </a>
+                <a href="https://tiktok.com/@grau.brothers" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors text-sm">
+                  TikTok @grau.brothers
+                </a>
+              </div>
             </div>
 
             <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
