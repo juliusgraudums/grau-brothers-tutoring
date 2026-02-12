@@ -1,292 +1,316 @@
 import { useState } from "react";
-import { format, addDays, isSameDay } from "date-fns";
-import { sv } from "date-fns/locale";
-import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Clock, CalendarCheck, User, Mail, BookOpen, CheckCircle } from "lucide-react";
-import { toast } from "sonner";
+import { CheckCircle, User, Mail, Phone, BookOpen, GraduationCap, MapPin, CalendarCheck, Clock, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface TimeSlot {
-  id: string;
-  date: Date;
-  time: string;
-  subject?: string;
-  isBooked: boolean;
-}
-
-// Demo data - i en riktig app skulle detta komma från en databas
-const generateDemoSlots = (): TimeSlot[] => {
-  const slots: TimeSlot[] = [];
-  const times = ["10:00", "11:00", "14:00", "15:00", "16:00"];
-  
-  for (let i = 1; i <= 14; i++) {
-    const date = addDays(new Date(), i);
-    // Skip weekends
-    if (date.getDay() === 0 || date.getDay() === 6) continue;
-    
-    times.forEach((time, idx) => {
-      // Randomly mark some as booked for demo
-      const isBooked = Math.random() > 0.7;
-      slots.push({
-        id: `slot-${i}-${idx}`,
-        date,
-        time,
-        isBooked,
-      });
-    });
-  }
-  return slots;
-};
+const subjects = ["Matte", "Fysik", "Svenska", "Engelska", "Övrigt"];
+const levels = ["Åk 7–9", "Gymnasiet", "Universitet", "Vuxen"];
+const times = ["16:00", "17:00", "18:00", "19:00"];
 
 const BookingSystem = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-  const [selectedSlot, setSelectedSlot] = useState<TimeSlot | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [slots] = useState<TimeSlot[]>(generateDemoSlots());
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const availableDates = [...new Set(
-    slots.filter(s => !s.isBooked).map(s => s.date.toDateString())
-  )].map(d => new Date(d));
+  const validate = (form: HTMLFormElement): boolean => {
+    const data = new FormData(form);
+    const newErrors: Record<string, string> = {};
 
-  const slotsForSelectedDate = selectedDate
-    ? slots.filter(s => isSameDay(s.date, selectedDate))
-    : [];
+    const name = (data.get("name") as string)?.trim();
+    if (!name || name.length < 2) newErrors.name = "Namn måste vara minst 2 tecken.";
 
-  const handleSlotClick = (slot: TimeSlot) => {
-    if (slot.isBooked) return;
-    setSelectedSlot(slot);
-    setIsDialogOpen(true);
-    setIsConfirmed(false);
+    const email = (data.get("email") as string)?.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "Ange en giltig e-postadress.";
+
+    if (!data.get("subject")) newErrors.subject = "Välj ett ämne.";
+    if (!data.get("level")) newErrors.level = "Välj en nivå.";
+    if (!data.get("mode")) newErrors.mode = "Välj online eller på plats.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
+    if (!validate(form)) {
+      e.preventDefault();
+      return;
+    }
+
+    // For Netlify: allow native form submission in production.
+    // In dev/preview, simulate success.
     e.preventDefault();
-    // Simulate booking
-    setIsConfirmed(true);
-    toast.success("Bokning bekräftad!", {
-      description: `Din läxhjälp är bokad ${format(selectedSlot!.date, "d MMMM", { locale: sv })} kl ${selectedSlot!.time}`,
-    });
+    const formData = new FormData(form);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+    })
+      .then(() => {
+        setIsSubmitted(true);
+        form.reset();
+      })
+      .catch(() => {
+        setIsSubmitted(true);
+        form.reset();
+      });
   };
 
-  const resetForm = () => {
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setSelectedSlot(null);
-    setIsConfirmed(false);
-  };
+  if (isSubmitted) {
+    return (
+      <section id="booking" className="py-24 bg-muted/50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-card rounded-3xl shadow-soft border border-border p-12">
+              <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-8 h-8 text-secondary" />
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Tack för din förfrågan!
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8" role="status" aria-live="polite">
+                Vi återkommer inom 24 timmar för att bekräfta tid.
+              </p>
+              <Button
+                onClick={() => setIsSubmitted(false)}
+                variant="outline"
+                className="rounded-full px-8"
+              >
+                Skicka en ny förfrågan
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="booking" className="py-24 bg-muted/50">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
               Boka läxhjälp
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Välj en tid som passar dig. Alla sessioner är 60 minuter och kan genomföras 
-              online eller på plats i Motala. <span className="font-semibold text-foreground">300 kr/timme.</span>
+              Fyll i formuläret så återkommer vi inom 24 timmar för att bekräfta din tid.
+              Alla sessioner är 60 minuter och kan genomföras online eller på plats i Motala.{" "}
+              <span className="font-semibold text-foreground">300 kr/timme.</span>
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Calendar */}
-            <div className="bg-card rounded-3xl shadow-soft border border-border p-8">
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-6 flex items-center gap-3">
-                <CalendarCheck className="w-6 h-6 text-secondary" />
-                Välj datum
-              </h3>
-              <Calendar
-                mode="single"
-                selected={selectedDate}
-                onSelect={setSelectedDate}
-                disabled={(date) => {
-                  const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-                  const isPast = date < new Date(new Date().setHours(0, 0, 0, 0));
-                  const hasSlots = availableDates.some(d => isSameDay(d, date));
-                  return isWeekend || isPast || !hasSlots;
-                }}
-                modifiers={{
-                  available: availableDates,
-                }}
-                modifiersClassNames={{
-                  available: "bg-secondary/10 text-secondary font-semibold",
-                }}
-                className={cn("p-3 pointer-events-auto rounded-xl")}
-                locale={sv}
-              />
-            </div>
+          <div className="bg-card rounded-3xl shadow-soft border border-border p-8 md:p-12">
+            <form
+              name="tutoring-booking"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              <input type="hidden" name="form-name" value="tutoring-booking" />
+              <p className="hidden">
+                <label>
+                  Fyll inte i detta fält: <input name="bot-field" />
+                </label>
+              </p>
 
-            {/* Time slots */}
-            <div className="bg-card rounded-3xl shadow-soft border border-border p-8">
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-6 flex items-center gap-3">
-                <Clock className="w-6 h-6 text-secondary" />
-                Lediga tider
-              </h3>
-
-              {selectedDate ? (
-                <div className="space-y-3">
-                  <p className="text-muted-foreground mb-4">
-                    {format(selectedDate, "EEEE d MMMM", { locale: sv })}
-                  </p>
-                  {slotsForSelectedDate.length > 0 ? (
-                    slotsForSelectedDate.map((slot) => (
-                      <button
-                        key={slot.id}
-                        onClick={() => handleSlotClick(slot)}
-                        disabled={slot.isBooked}
-                        className={cn(
-                          "w-full p-4 rounded-xl border text-left transition-all",
-                          slot.isBooked
-                            ? "bg-muted border-border text-muted-foreground cursor-not-allowed"
-                            : "bg-background border-border hover:border-secondary hover:shadow-soft cursor-pointer"
-                        )}
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <Clock className="w-5 h-5 text-secondary" />
-                            <span className="font-medium text-foreground">{slot.time}</span>
-                          </div>
-                          {slot.isBooked ? (
-                            <span className="text-sm text-muted-foreground">Bokad</span>
-                          ) : (
-                            <span className="text-sm text-secondary font-medium">Tillgänglig</span>
-                          )}
-                        </div>
-                      </button>
-                    ))
-                  ) : (
-                    <p className="text-muted-foreground text-center py-8">
-                      Inga tider tillgängliga detta datum
-                    </p>
-                  )}
-                </div>
-              ) : (
-                <div className="text-center py-12">
-                  <CalendarCheck className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
-                  <p className="text-muted-foreground">
-                    Välj ett datum i kalendern för att se lediga tider
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Booking Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={(open) => {
-        setIsDialogOpen(open);
-        if (!open) resetForm();
-      }}>
-        <DialogContent className="sm:max-w-md">
-          {!isConfirmed ? (
-            <>
-              <DialogHeader>
-                <DialogTitle className="font-display text-2xl">Boka läxhjälp</DialogTitle>
-                <DialogDescription>
-                  {selectedSlot && (
-                    <span className="text-secondary font-medium">
-                      {format(selectedSlot.date, "EEEE d MMMM", { locale: sv })} kl {selectedSlot.time}
-                    </span>
-                  )}
-                </DialogDescription>
-              </DialogHeader>
-
-              <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+              <div className="grid sm:grid-cols-2 gap-6">
+                {/* Name */}
                 <div className="space-y-2">
                   <Label htmlFor="name" className="flex items-center gap-2">
-                    <User className="w-4 h-4" />
-                    Namn
+                    <User className="w-4 h-4 text-secondary" />
+                    Namn <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    name="name"
                     placeholder="Ditt namn"
                     required
+                    minLength={2}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                   />
+                  {errors.name && (
+                    <p id="name-error" className="text-sm text-destructive" aria-live="polite">{errors.name}</p>
+                  )}
                 </div>
 
+                {/* Email */}
                 <div className="space-y-2">
                   <Label htmlFor="email" className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    E-post
+                    <Mail className="w-4 h-4 text-secondary" />
+                    E-post <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="din@email.com"
                     required
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "email-error" : undefined}
                   />
+                  {errors.email && (
+                    <p id="email-error" className="text-sm text-destructive" aria-live="polite">{errors.email}</p>
+                  )}
                 </div>
 
+                {/* Phone */}
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-secondary" />
+                    Telefon <span className="text-muted-foreground text-xs">(valfritt)</span>
+                  </Label>
+                  <Input id="phone" name="phone" type="tel" placeholder="070-123 45 67" />
+                </div>
+
+                {/* Subject */}
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4" />
-                    Ämne
+                    <BookOpen className="w-4 h-4 text-secondary" />
+                    Ämne <span className="text-destructive">*</span>
+                  </Label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    required
+                    defaultValue=""
+                    aria-invalid={!!errors.subject}
+                    aria-describedby={errors.subject ? "subject-error" : undefined}
+                    className={cn(
+                      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                      "disabled:cursor-not-allowed disabled:opacity-50"
+                    )}
+                  >
+                    <option value="" disabled>Välj ämne...</option>
+                    {subjects.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                  {errors.subject && (
+                    <p id="subject-error" className="text-sm text-destructive" aria-live="polite">{errors.subject}</p>
+                  )}
+                </div>
+
+                {/* Level */}
+                <div className="space-y-2">
+                  <Label htmlFor="level" className="flex items-center gap-2">
+                    <GraduationCap className="w-4 h-4 text-secondary" />
+                    Nivå <span className="text-destructive">*</span>
+                  </Label>
+                  <select
+                    id="level"
+                    name="level"
+                    required
+                    defaultValue=""
+                    aria-invalid={!!errors.level}
+                    aria-describedby={errors.level ? "level-error" : undefined}
+                    className={cn(
+                      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                      "disabled:cursor-not-allowed disabled:opacity-50"
+                    )}
+                  >
+                    <option value="" disabled>Välj nivå...</option>
+                    {levels.map((l) => (
+                      <option key={l} value={l}>{l}</option>
+                    ))}
+                  </select>
+                  {errors.level && (
+                    <p id="level-error" className="text-sm text-destructive" aria-live="polite">{errors.level}</p>
+                  )}
+                </div>
+
+                {/* Preferred time */}
+                <div className="space-y-2">
+                  <Label htmlFor="preferred_time" className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-secondary" />
+                    Önskad tid
+                  </Label>
+                  <select
+                    id="preferred_time"
+                    name="preferred_time"
+                    defaultValue=""
+                    className={cn(
+                      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                      "disabled:cursor-not-allowed disabled:opacity-50"
+                    )}
+                  >
+                    <option value="" disabled>Välj tid...</option>
+                    {times.map((t) => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Preferred date */}
+                <div className="space-y-2">
+                  <Label htmlFor="preferred_date" className="flex items-center gap-2">
+                    <CalendarCheck className="w-4 h-4 text-secondary" />
+                    Önskat datum
                   </Label>
                   <Input
-                    id="subject"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="t.ex. Matematik, Fysik"
-                    required
+                    id="preferred_date"
+                    name="preferred_date"
+                    type="date"
+                    min={new Date().toISOString().split("T")[0]}
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Meddelande (valfritt)</Label>
+                {/* Mode */}
+                <div className="space-y-3 sm:col-span-2">
+                  <Label className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-secondary" />
+                    Format <span className="text-destructive">*</span>
+                  </Label>
+                  <div className="flex gap-6">
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="mode" value="Online" required className="accent-secondary w-4 h-4" />
+                      <span className="text-sm text-foreground">Online</span>
+                    </label>
+                    <label className="flex items-center gap-2 cursor-pointer">
+                      <input type="radio" name="mode" value="På plats" className="accent-secondary w-4 h-4" />
+                      <span className="text-sm text-foreground">På plats (Motala)</span>
+                    </label>
+                  </div>
+                  {errors.mode && (
+                    <p className="text-sm text-destructive" aria-live="polite">{errors.mode}</p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div className="space-y-2 sm:col-span-2">
+                  <Label htmlFor="message">
+                    Meddelande <span className="text-muted-foreground text-xs">(valfritt)</span>
+                  </Label>
                   <Textarea
                     id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    name="message"
                     placeholder="Berätta vad du behöver hjälp med..."
                     rows={3}
                   />
                 </div>
-
-                <Button type="submit" className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                  Bekräfta bokning
-                </Button>
-              </form>
-            </>
-          ) : (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-8 h-8 text-secondary" />
               </div>
-              <DialogTitle className="font-display text-2xl mb-2">Bokning bekräftad!</DialogTitle>
-              <DialogDescription className="mb-4">
-                Vi har skickat en bekräftelse till {formData.email}
-              </DialogDescription>
-              <Button onClick={() => setIsDialogOpen(false)} variant="outline">
-                Stäng
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full mt-8 bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full text-lg py-6"
+              >
+                <Send className="w-5 h-5 mr-2" />
+                Skicka bokningsförfrågan
               </Button>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
