@@ -42,7 +42,7 @@ const SailingHero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6 rounded-full"
+              className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-lg px-8 py-6 rounded-full hover:bg-primary-foreground/20"
               asChild
             >
               <Link to="/laxhjalp">
