@@ -7,7 +7,7 @@ import { CheckCircle, User, Mail, Phone, BookOpen, GraduationCap, MapPin, Calend
 import { cn } from "@/lib/utils";
 
 const subjects = ["Matte", "Fysik", "Svenska", "Engelska", "Övrigt"];
-const levels = ["Åk 7–9", "Gymnasiet", "Universitet", "Vuxen"];
+const levels = ["Åk 7–9", "Gymnasiet"];
 const times = ["16:00", "17:00", "18:00", "19:00"];
 
 const BookingSystem = () => {
