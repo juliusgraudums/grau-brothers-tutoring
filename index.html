@@ -20,6 +20,20 @@
   </head>
 
   <body>
+    <!-- Hidden Netlify form for bot detection at build time -->
+    <form name="tutoring-booking" netlify netlify-honeypot="bot-field" hidden>
+      <input name="form-name" type="hidden" value="tutoring-booking" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" />
+      <input name="phone" />
+      <select name="subject"></select>
+      <select name="level"></select>
+      <input name="mode" type="radio" />
+      <input name="preferred_date" type="date" />
+      <select name="preferred_time"></select>
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
