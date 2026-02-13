@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo-navy.png";
+import logo from "@/assets/logo.jpeg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,8 +40,8 @@ const Navbar = () => {
               src={logo} 
               alt="Grau Brothers logo" 
               className={cn(
-                "transition-all duration-300 rounded-xl",
-                isScrolled ? "h-10 brightness-0 invert-0" : "h-14 brightness-0 invert"
+                "transition-all duration-300",
+                isScrolled ? "h-10" : "h-14"
               )}
             />
           </Link>

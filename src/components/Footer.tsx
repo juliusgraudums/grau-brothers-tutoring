@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-navy.png";
+import logo from "@/assets/logo.jpeg";
 
 const Footer = () => {
   return (
