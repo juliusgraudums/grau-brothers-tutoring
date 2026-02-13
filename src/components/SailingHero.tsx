@@ -23,7 +23,7 @@ const SailingHero = () => {
 
           <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground mb-6 animate-slide-up">
             Vi lever för
-            <span className="block text-gradient mt-2">seglingen</span>
+            <span className="block text-gradient mt-2 pb-2">seglingen</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
