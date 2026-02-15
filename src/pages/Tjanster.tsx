@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Anchor, Users, Clock, MapPin, ArrowRight } from "lucide-react";
+import { Anchor, Users, Clock, MapPin, ArrowRight, Trophy, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import sailingAction from "@/assets/sailing-action.jpeg";
 
@@ -82,6 +82,73 @@ const Tjanster = () => {
                     <p className="text-muted-foreground text-sm">Vi anpassar tid och plats efter dig.</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Optimist Coaching */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="order-2 md:order-1 space-y-6">
+                <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
+                  <h4 className="font-display text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+                    <Star className="w-5 h-5 text-secondary" />
+                    Våra meriter
+                  </h4>
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-2">Julius</h5>
+                      <ul className="text-muted-foreground text-sm space-y-1">
+                        <li>• 10:a på Senior VM ILCA 6 2025</li>
+                        <li>• Senior SM guld ILCA 6 2025</li>
+                        <li>• JSM guld ILCA 6 2024</li>
+                        <li>• Vinnare av svenska GP-serien 2024 ILCA</li>
+                        <li>• Vinnare av GP 4 och 5 29er 2023</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-foreground mb-2">Marius</h5>
+                      <ul className="text-muted-foreground text-sm space-y-1">
+                        <li>• Vinnare JSM ILCA 6 2025</li>
+                        <li>• GP-serien ILCA 2025 – 2:a</li>
+                        <li>• VM-laget i optimist 2021</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="order-1 md:order-2">
+                <div className="inline-flex items-center gap-2 bg-secondary/10 rounded-full px-4 py-2 mb-6">
+                  <Trophy className="w-4 h-4 text-secondary" />
+                  <span className="text-secondary text-sm font-semibold">OPTIMISTJOLLE COACHING</span>
+                </div>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+                  Coaching i <span className="text-gradient">optimistjolle</span>
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                  Vi har båda seglat optimist och vet vad som krävs för att utvecklas i klassen. 
+                  Med erfarenhet från VM-lag och nationella mästerskap hjälper vi unga seglare att 
+                  bygga en stark grund – i teknik, taktik och tävlingsmentalitet.
+                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                  Perfekt för seglare som vill ta nästa steg, oavsett om målet är att komma in i 
+                  VM-laget eller helt enkelt bli en bättre seglare.
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
+                  asChild
+                >
+                  <a href="mailto:graubrothers@gmail.com">
+                    Kontakta oss
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
