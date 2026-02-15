@@ -47,12 +47,13 @@ const Tjanster = () => {
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                   Med flera års erfarenhet av ILCA-segling på elitnivå erbjuder vi individuell coaching 
-                  för seglare som vill utvecklas. Oavsett om du precis har börjat eller vill ta steget 
-                  till nästa nivå kan vi hjälpa dig.
+                  för seglare som vill utvecklas. Oavsett om du precis har börjat eller siktar på 
+                  mästerskap – vi möter dig där du befinner dig.
                 </p>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                  Vi fokuserar på teknik, taktik, fysisk förberedelse och den mentala styrkan som krävs 
-                  för att prestera i tävlingar.
+                  Vi fokuserar på teknik, taktik och att du ska trivas på vattnet. Vår coaching passar 
+                  alla nivåer – det viktigaste är att du har kul och känner att du utvecklas i din 
+                  egen takt.
                 </p>
                 <Button
                   size="lg"
@@ -103,7 +104,7 @@ const Tjanster = () => {
                     <div>
                       <h5 className="font-semibold text-foreground mb-2">Julius</h5>
                       <ul className="text-muted-foreground text-sm space-y-1">
-                        <li>• 10:a på Senior VM ILCA 6 2025</li>
+                        <li>• 9:a på Senior VM ILCA 6 2025</li>
                         <li>• Senior SM guld ILCA 6 2025</li>
                         <li>• JSM guld ILCA 6 2024</li>
                         <li>• Vinnare av svenska GP-serien 2024 ILCA</li>
@@ -116,6 +117,7 @@ const Tjanster = () => {
                         <li>• Vinnare JSM ILCA 6 2025</li>
                         <li>• GP-serien ILCA 2025 – 2:a</li>
                         <li>• VM-laget i optimist 2021</li>
+                        <li>• Enda svensk kvalificerad till U-VM 2025</li>
                       </ul>
                     </div>
                   </div>
@@ -133,11 +135,12 @@ const Tjanster = () => {
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                   Vi har båda seglat optimist och vet vad som krävs för att utvecklas i klassen. 
                   Med erfarenhet från VM-lag och nationella mästerskap hjälper vi unga seglare att 
-                  bygga en stark grund – i teknik, taktik och tävlingsmentalitet.
+                  bygga en stark grund – i teknik, taktik och seglingsglädje.
                 </p>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                  Perfekt för seglare som vill ta nästa steg, oavsett om målet är att komma in i 
-                  VM-laget eller helt enkelt bli en bättre seglare.
+                  Vår coaching passar alla – oavsett om du siktar på tävlingar eller bara vill bli 
+                  tryggare och ha roligare på vattnet. Vi möter dig där du är och anpassar efter 
+                  just dina mål och din nivå, utan press.
                 </p>
                 <Button
                   size="lg"
