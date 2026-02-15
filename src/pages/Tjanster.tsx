@@ -25,7 +25,7 @@ const Tjanster = () => {
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-6 animate-slide-up">
               Våra <span className="text-gradient">tjänster</span>
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>Vi erbjuder ILCA- och Opti-coaching –  med passion och kunskap från vår egen elitsatsning. Läs mer nedan och tveka inte att kontakta oss för coachin
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>Vi erbjuder ILCA- och Opti-coaching –  med passion och kunskap från vår egen elitsatsning. Läs mer nedan och tveka inte att kontakta oss för coaching.
 
             </p>
           </div>
