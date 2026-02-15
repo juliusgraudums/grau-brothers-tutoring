@@ -49,6 +49,16 @@ const SailingHero = () => {
                 Läxhjälp
               </Link>
             </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-lg px-8 py-6 rounded-full hover:bg-primary-foreground/20"
+              asChild
+            >
+              <Link to="/tjanster">
+                Coaching
+              </Link>
+            </Button>
           </div>
 
           <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-primary-foreground/10 animate-slide-up" style={{ animationDelay: "0.3s" }}>
