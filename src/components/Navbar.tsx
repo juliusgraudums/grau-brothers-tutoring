@@ -89,6 +89,15 @@ const Navbar = () => {
                 Hem
               </Link>
             )}
+            <Link
+              to="/tjanster"
+              className={cn(
+                "font-medium transition-colors hover:text-secondary",
+                isScrolled ? "text-foreground" : "text-primary-foreground"
+              )}
+            >
+              Tjänster
+            </Link>
             <Button
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full"
               asChild
@@ -153,6 +162,16 @@ const Navbar = () => {
                   Hem
                 </Link>
               )}
+              <Link
+                to="/tjanster"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={cn(
+                  "font-medium text-left transition-colors hover:text-secondary",
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                )}
+              >
+                Tjänster
+              </Link>
               <Button
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full w-full"
                 asChild

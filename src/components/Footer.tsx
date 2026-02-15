@@ -22,6 +22,13 @@ const Footer = () => {
                 Segling
               </Link>
               <Link 
+                to="/tjanster" 
+                className="text-primary-foreground/70 hover:text-secondary transition-colors"
+                onClick={() => window.scrollTo(0, 0)}
+              >
+                Tjänster
+              </Link>
+              <Link 
                 to="/laxhjalp" 
                 className="text-primary-foreground/70 hover:text-secondary transition-colors"
                 onClick={() => window.scrollTo(0, 0)}
