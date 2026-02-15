@@ -60,7 +60,7 @@ const Tjanster = () => {
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
                   asChild>
 
-                  <a href="mailto:graubrothers@gmail.com">
+                  <a href="kontakt@graubrothers.se">
                     Kontakta oss
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </a>
@@ -147,7 +147,7 @@ const Tjanster = () => {
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
                   asChild>
 
-                  <a href="mailto:graubrothers@gmail.com">
+                  <a href="mailto:kontakt@graubrothers.se">
                     Kontakta oss
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </a>
@@ -172,7 +172,7 @@ const Tjanster = () => {
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold shadow-glow"
             asChild>
 
-            <a href="mailto:graubrothers@gmail.com">
+            <a href="mailto:kontakt@graubrothers.se">
               Skicka mail
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
