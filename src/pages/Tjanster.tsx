@@ -25,8 +25,8 @@ const Tjanster = () => {
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-6 animate-slide-up">
               Våra <span className="text-gradient">tjänster</span>
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              Förutom läxhjälp erbjuder vi ILCA coaching – samma passion och kunskap vi använder i vår egen elitsatsning.
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>Vi erbjuder ILCA- och Opti-coaching –  med passion och kunskap från vår egen elitsatsning. Läs mer nedan och tveka inte att kontakta oss för coachin
+
             </p>
           </div>
         </div>
@@ -58,8 +58,8 @@ const Tjanster = () => {
                 <Button
                   size="lg"
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
-                  asChild
-                >
+                  asChild>
+
                   <a href="mailto:graubrothers@gmail.com">
                     Kontakta oss
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -145,8 +145,8 @@ const Tjanster = () => {
                 <Button
                   size="lg"
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
-                  asChild
-                >
+                  asChild>
+
                   <a href="mailto:graubrothers@gmail.com">
                     Kontakta oss
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -170,8 +170,8 @@ const Tjanster = () => {
           <Button
             size="lg"
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold shadow-glow"
-            asChild
-          >
+            asChild>
+
             <a href="mailto:graubrothers@gmail.com">
               Skicka mail
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -181,8 +181,8 @@ const Tjanster = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Tjanster;
