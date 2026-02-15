@@ -20,7 +20,8 @@ const Tjanster = () => {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
               <Anchor className="w-4 h-4 text-secondary" />
-              <span className="text-primary-foreground/90 text-sm font-medium">Övriga tjänster</span>
+              <span className="text-primary-foreground/90 text-sm font-medium">Seglingscoaching
+              </span>
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-6 animate-slide-up">
               Våra <span className="text-gradient">tjänster</span>
@@ -55,11 +56,10 @@ const Tjanster = () => {
                   alla nivåer – det viktigaste är att du har kul och känner att du utvecklas i din 
                   egen takt.
                 </p>
-                <Button
-                  size="lg"
-                  className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
-                  asChild
-                >
+                <Button size="lg"
+                className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
+                asChild>
+
                   <a href="mailto:graubrothers@gmail.com">
                     Kontakta oss
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -145,8 +145,8 @@ const Tjanster = () => {
                 <Button
                   size="lg"
                   className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold"
-                  asChild
-                >
+                  asChild>
+
                   <a href="mailto:graubrothers@gmail.com">
                     Kontakta oss
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -170,8 +170,8 @@ const Tjanster = () => {
           <Button
             size="lg"
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold shadow-glow"
-            asChild
-          >
+            asChild>
+
             <a href="mailto:graubrothers@gmail.com">
               Skicka mail
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -181,8 +181,8 @@ const Tjanster = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Tjanster;
