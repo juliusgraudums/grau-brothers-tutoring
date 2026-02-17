@@ -94,6 +94,7 @@ const Navbar = () => {
               className={cn(
                 "font-medium transition-colors hover:text-secondary",
                 isScrolled ? "text-foreground" : "text-primary-foreground"
+                onClick={() => window.scrollTo(0, 0)}
               )}
             >
               Tjänster
@@ -101,6 +102,7 @@ const Navbar = () => {
             <Button
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full"
               asChild
+              onClick={() => window.scrollTo(0, 0)}
             >
               <Link to="/laxhjalp">Läxhjälp</Link>
             </Button>
@@ -168,6 +170,7 @@ const Navbar = () => {
                 className={cn(
                   "font-medium text-left transition-colors hover:text-secondary",
                   isScrolled ? "text-foreground" : "text-primary-foreground"
+        onClick={() => window.scrollTo(0, 0)}
                 )}
               >
                 Tjänster
@@ -175,6 +178,7 @@ const Navbar = () => {
               <Button
                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full w-full"
                 asChild
+                onClick={() => window.scrollTo(0, 0)}
               >
                 <Link to="/laxhjalp" onClick={() => setIsMobileMenuOpen(false)}>Läxhjälp</Link>
               </Button>
