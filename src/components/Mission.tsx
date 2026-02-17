@@ -25,14 +25,14 @@ const Mission = () => {
                 Med drömmen om att <span className="text-gradient">tävla i världstoppen</span>
               </h3>
               <p className="text-primary-foreground/80 text-lg leading-relaxed mb-6">
-                Grau Brothers är två bröder från Ingarö som elitsatsar i ILCA-segling. Efter fyra år 
+                Grau Brothers består av Julius och Marius Graudums. Vi är två bröder från Ingarö som elitsatsar i ILCA-segling. Efter fyra år 
                 på seglargymnasiet i Motala tränar vi dagligen och tävlar internationellt med siktet 
-                inställt på att nå så långt som möjligt. OS är den stora drömmen – och vi jobbar 
+                inställt på att nå så långt som möjligt. OS är den stora drömmen och vi jobbar 
                 hårt varje dag för att komma närmare.
               </p>
               <p className="text-primary-foreground/80 text-lg leading-relaxed">
                 Vid sidan av seglingen erbjuder vi olika former av tjänster, där vi applicerar samma fokus och disciplin 
-                som driver oss på vattnet. Vi erbjuder seglingscoaching i ILCA och Opti, läxhjälp och andra tjänster som exempelvis tvätt och polering av båta.r
+                som driver oss på vattnet. Vi erbjuder seglingscoaching i ILCA och Opti, läxhjälp och andra tjänster som exempelvis tvätt och polering av båtar. Tveka inte att kontakta oss om du behöver hjälp med vad som helst. Vi är två händiga killar som får jobbet gjort. 
               </p>
             </div>
 
