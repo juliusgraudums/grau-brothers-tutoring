@@ -31,8 +31,8 @@ const Mission = () => {
                 hårt varje dag för att komma närmare.
               </p>
               <p className="text-primary-foreground/80 text-lg leading-relaxed">
-                Vid sidan av seglingen erbjuder vi läxhjälp – samma fokus och disciplin 
-                som driver oss på vattnet hjälper oss att coacha elever mot toppresultat.
+                Vid sidan av seglingen erbjuder vi olika former av tjänster, där vi applicerar samma fokus och disciplin 
+                som driver oss på vattnet. Vi erbjuder seglingscoaching i ILCA och Opti, läxhjälp och andra tjänster som exempelvis tvätt och polering av båta.r
               </p>
             </div>
 
