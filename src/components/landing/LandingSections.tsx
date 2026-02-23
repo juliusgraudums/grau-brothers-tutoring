@@ -1,8 +1,10 @@
-import { Anchor, BookOpen, Sparkles, Wrench, Compass, GraduationCap, Trophy } from "lucide-react";
+import { Anchor, BookOpen, Sparkles, Wrench, Compass, GraduationCap, Trophy, Sailboat, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/landing/SectionHeader";
 import ServiceCard from "@/components/landing/ServiceCard";
 import CTASection from "@/components/landing/CTASection";
 import sailingRace from "@/assets/sailing-race.jpeg";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -56,6 +58,12 @@ const reasons = [
   "Vi bygger långsiktigt förtroende – många återkommer när nya behov dyker upp.",
 ];
 
+const sponsorshipPoints = [
+  "Vi tränar och tävlar målmedvetet med en långsiktig satsning inom ILCA.",
+  "Stöd från partners hjälper oss att lägga mer tid på träning, resor och utveckling.",
+  "Vi vill bygga samarbeten som känns äkta och hållbara för båda parter.",
+];
+
 const LandingSections = () => {
   return (
     <>
@@ -99,7 +107,7 @@ const LandingSections = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-background">
+      <section id="about" className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div>
@@ -120,6 +128,41 @@ const LandingSections = () => {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-medium">
               <img src={sailingRace} alt="Julius och Marius Graudums i tävling" className="w-full h-[420px] object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto bg-background rounded-3xl border border-border shadow-soft p-10 md:p-12">
+            <SectionHeader
+              eyebrow="Seglingssatsning"
+              title="Vår väg mot nästa nivå i ILCA"
+              subtitle="Seglingen är en lika viktig del av Grau Brothers som våra tjänster. Vi driver satsningen ödmjukt och målmedvetet, och söker partners som vill följa resan."
+              centered={false}
+            />
+            <div className="grid md:grid-cols-2 gap-8 mt-8 items-start">
+              <ul className="space-y-4">
+                {sponsorshipPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-muted-foreground">
+                    <Sailboat className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-muted/40 rounded-2xl p-6 border border-border">
+                <p className="text-foreground font-medium mb-4">Vill du veta mer om samarbete eller sponsring?</p>
+                <p className="text-muted-foreground text-sm mb-5">
+                  Hör gärna av dig så berättar vi mer om vår plan framåt och hur ett samarbete kan se ut.
+                </p>
+                <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full" asChild>
+                  <Link to="/kontakt">
+                    Kontakta oss om sponsring
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

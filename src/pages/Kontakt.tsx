@@ -11,9 +11,7 @@ const Kontakt = () => {
         description="Kontakta Julius Graudums och Marius Graudums på Grau Brothers för läxhjälp, coaching och övriga tjänster."
       />
       <Navbar />
-      <div className="pt-16">
-        <Contact />
-      </div>
+      <Contact />
       <Footer />
     </div>
   );
