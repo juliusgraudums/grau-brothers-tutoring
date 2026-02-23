@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Anchor, ArrowRight, GraduationCap, Waves, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import sailingAction from "@/assets/sailing-action.jpeg";
+import Seo from "@/components/Seo";
 
 const Tjanster = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Tjänster | Grau Brothers"
+        description="Utforska alla tjänster från Grau Brothers: läxhjälp, coaching och övriga tjänster."
+      />
       <Navbar />
 
       <section className="relative bg-hero pt-32 pb-20 overflow-hidden">

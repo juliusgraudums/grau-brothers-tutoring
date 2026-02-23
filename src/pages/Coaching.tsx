@@ -3,10 +3,15 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Anchor, Users, Clock, ArrowRight, Trophy, Star } from "lucide-react";
 import sailingAction from "@/assets/sailing-action.jpeg";
+import Seo from "@/components/Seo";
 
 const Coaching = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Coaching | Grau Brothers"
+        description="Seglingscoaching i ILCA och optimist med Julius Graudums och Marius Graudums på Grau Brothers."
+      />
       <Navbar />
 
       <section className="relative bg-hero pt-32 pb-20 overflow-hidden">

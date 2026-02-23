@@ -3,10 +3,15 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
+import Seo from "@/components/Seo";
 
 const Ovrigt = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Övriga tjänster | Grau Brothers"
+        description="Behöver du hjälp med något annat? Kontakta Grau Brothers för övriga tjänster."
+      />
       <Navbar />
 
       <section className="pt-36 pb-24 bg-muted/30">
