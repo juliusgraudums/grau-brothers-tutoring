@@ -35,8 +35,8 @@ const SailingHero = () => {
               Våra tjänster
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
+            <Button 
+              size="lg" 
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold"
               onClick={() => document.getElementById("mission")?.scrollIntoView({ behavior: "smooth" })}
             >
