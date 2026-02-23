@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SailingHero from "@/components/SailingHero";
-import Mission from "@/components/Mission";
-import SailingAbout from "@/components/SailingAbout";
-import Contact from "@/components/Contact";
+import LandingSections from "@/components/landing/LandingSections";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 
@@ -15,9 +13,7 @@ const Index = () => {
       />
       <Navbar />
       <SailingHero />
-      <Mission />
-      <SailingAbout />
-      <Contact />
+      <LandingSections />
       <Footer />
     </div>
   );
