@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Anchor } from "lucide-react";
+import { ArrowRight, Anchor, Sailboat } from "lucide-react";
 import { Link } from "react-router-dom";
 import sailingAction from "@/assets/sailing-action.jpeg";
 
@@ -27,13 +27,26 @@ const SailingHero = () => {
             Julius och Marius Graudums kombinerar elitsatsning i segling med läxhjälp, coaching och praktiska tjänster.
           </p>
 
-          <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold" asChild>
-              <Link to="/tjanster">
-                Se våra tjänster
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
+          <div className="animate-slide-up space-y-4" style={{ animationDelay: "0.2s" }}>
+            <div className="flex justify-center">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 text-lg px-8 py-6 rounded-full"
+                onClick={() => document.getElementById("sailing-satsning")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Vår seglingssatsning
+                <Sailboat className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+            <div className="flex justify-center">
+              <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold" asChild>
+                <Link to="/tjanster">
+                  Se våra tjänster
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-primary-foreground/10 animate-slide-up" style={{ animationDelay: "0.3s" }}>

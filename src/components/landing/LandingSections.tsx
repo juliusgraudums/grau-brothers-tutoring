@@ -1,28 +1,10 @@
-import { Anchor, BookOpen, Sparkles, Wrench, Compass, GraduationCap, Trophy, Sailboat, ArrowRight } from "lucide-react";
+import { Anchor, BookOpen, Sparkles, Wrench, Sailboat, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/landing/SectionHeader";
 import ServiceCard from "@/components/landing/ServiceCard";
 import CTASection from "@/components/landing/CTASection";
 import sailingRace from "@/assets/sailing-race.jpeg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
-const steps = [
-  {
-    title: "Berätta vad du vill uppnå",
-    text: "Vi börjar med ett kort samtal om mål, nivå och vilken typ av stöd du behöver.",
-    icon: Compass,
-  },
-  {
-    title: "Vi lägger upp en plan",
-    text: "Du får ett enkelt upplägg med tydligt fokus så att varje pass ger resultat.",
-    icon: GraduationCap,
-  },
-  {
-    title: "Följ progressionen",
-    text: "Vi följer upp löpande och justerar upplägget när dina behov förändras.",
-    icon: Trophy,
-  },
-];
 
 const services = [
   {
@@ -67,38 +49,11 @@ const sponsorshipPoints = [
 const LandingSections = () => {
   return (
     <>
-      <section id="mission" className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <SectionHeader
-              eyebrow="Så funkar det"
-              title="Tre steg från mål till resultat"
-              subtitle="En enkel process som gör det lätt att komma igång och fortsätta utvecklas."
-            />
-            <div className="grid md:grid-cols-3 gap-6 mt-14">
-              {steps.map(({ title, text, icon: Icon }) => (
-                <article key={title} className="bg-card rounded-2xl p-7 shadow-soft border border-border">
-                  <div className="w-11 h-11 bg-secondary/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-secondary" />
-                  </div>
-                  <h3 className="font-display text-xl font-semibold text-foreground mb-2">{title}</h3>
-                  <p className="text-muted-foreground">{text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <SectionHeader
-              eyebrow="Tjänster"
-              title="Välj det stöd som passar dig"
-              subtitle="Vi erbjuder tre tydliga vägar beroende på vad du vill ha hjälp med."
-            />
-            <div className="grid md:grid-cols-3 gap-6 mt-14">
+            <p className="text-sm font-semibold uppercase tracking-wide mb-8 text-secondary text-center">Tjänster</p>
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
               {services.map((service) => (
                 <ServiceCard key={service.title} {...service} />
               ))}
@@ -133,8 +88,8 @@ const LandingSections = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
+      <section id="mission" className="py-20 bg-background">
+        <div id="sailing-satsning" className="container mx-auto px-6 scroll-mt-24">
           <div className="max-w-5xl mx-auto bg-background rounded-3xl border border-border shadow-soft p-10 md:p-12">
             <SectionHeader
               eyebrow="Seglingssatsning"
