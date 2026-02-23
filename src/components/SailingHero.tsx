@@ -30,7 +30,11 @@ const SailingHero = () => {
             Två bröder från Ingarö med en gemensam dröm – att tävla på den internationella scenen i ILCA-segling.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-primary-foreground/80 font-semibold uppercase tracking-wide text-sm mb-4">
+              Våra tjänster
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold"
@@ -59,6 +63,7 @@ const SailingHero = () => {
                 Coaching
               </Link>
             </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-primary-foreground/10 animate-slide-up" style={{ animationDelay: "0.3s" }}>
