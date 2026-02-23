@@ -11,7 +11,7 @@ const SailingHero = () => {
         <img src={sailingAction} alt="ILCA segling" className="w-full h-full object-cover opacity-20" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90" />
-      
+
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-in">
@@ -43,23 +43,23 @@ const SailingHero = () => {
               Vår resa
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-lg px-8 py-6 rounded-full hover:bg-primary-foreground/20"
               asChild
             >
-              <Link to="/laxhjalp">
+              <Link to="/tjanster/laxhjalp">
                 Läxhjälp
               </Link>
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-lg px-8 py-6 rounded-full hover:bg-primary-foreground/20"
               asChild
             >
-              <Link to="/tjanster">
+              <Link to="/tjanster/coaching">
                 Coaching
               </Link>
             </Button>
