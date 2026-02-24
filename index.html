@@ -39,35 +39,69 @@
         "@graph": [
           {
             "@type": "Organization",
+            "@id": "https://graubrothers.se/#organization",
             "name": "Grau Brothers",
             "url": "https://graubrothers.se",
+            "description": "Grau Brothers drivs av Julius Graudums och Marius Graudums och erbjuder läxhjälp, seglingscoaching och övriga tjänster.",
             "logo": "https://graubrothers.se/favicon.ico",
+            "email": "kontakt@graubrothers.se",
             "sameAs": [
               "https://instagram.com/jullegrau",
               "https://instagram.com/marregrau",
               "https://tiktok.com/@grau.brothers"
-            ]
+            ],
+            "founder": [
+              {
+                "@type": "Person",
+                "name": "Julius Graudums"
+              },
+              {
+                "@type": "Person",
+                "name": "Marius Graudums"
+              }
+            ],
+            "areaServed": "SE"
           },
           {
             "@type": "Person",
+            "@id": "https://graubrothers.se/#julius-graudums",
             "name": "Julius Graudums",
             "worksFor": {
-              "@type": "Organization",
-              "name": "Grau Brothers"
+              "@id": "https://graubrothers.se/#organization"
             }
           },
           {
             "@type": "Person",
+            "@id": "https://graubrothers.se/#marius-graudums",
             "name": "Marius Graudums",
             "worksFor": {
-              "@type": "Organization",
-              "name": "Grau Brothers"
+              "@id": "https://graubrothers.se/#organization"
             }
           },
           {
             "@type": "WebSite",
+            "@id": "https://graubrothers.se/#website",
             "name": "Grau Brothers",
-            "url": "https://graubrothers.se"
+            "url": "https://graubrothers.se",
+            "inLanguage": "sv-SE"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://graubrothers.se/#webpage",
+            "url": "https://graubrothers.se/",
+            "name": "Grau Brothers | Julius Graudums & Marius Graudums",
+            "isPartOf": {
+              "@id": "https://graubrothers.se/#website"
+            },
+            "about": [
+              {
+                "@id": "https://graubrothers.se/#julius-graudums"
+              },
+              {
+                "@id": "https://graubrothers.se/#marius-graudums"
+              }
+            ],
+            "inLanguage": "sv-SE"
           }
         ]
       }
