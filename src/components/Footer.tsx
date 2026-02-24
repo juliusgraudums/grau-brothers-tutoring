@@ -15,54 +15,35 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-              <Link 
-                to="/" 
-                className="text-primary-foreground/70 hover:text-secondary transition-colors"
-              >
+              <Link to="/" className="text-primary-foreground/70 hover:text-secondary transition-colors">
                 Segling
               </Link>
-              <Link 
-                to="/tjanster" 
-                className="text-primary-foreground/70 hover:text-secondary transition-colors"
-                onClick={() => window.scrollTo(0, 0)}
-              >
+              <Link to="/tjanster" className="text-primary-foreground/70 hover:text-secondary transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Tjänster
               </Link>
-              <Link 
-                to="/laxhjalp" 
-                className="text-primary-foreground/70 hover:text-secondary transition-colors"
-                onClick={() => window.scrollTo(0, 0)}
-              >
+              <Link to="/tjanster/laxhjalp" className="text-primary-foreground/70 hover:text-secondary transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Läxhjälp
               </Link>
-              <a 
-                href="https://instagram.com/jullegrau" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/70 hover:text-secondary transition-colors"
-              >
+              <Link to="/tjanster/coaching" className="text-primary-foreground/70 hover:text-secondary transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                Coaching
+              </Link>
+              <Link to="/tjanster/ovrigt" className="text-primary-foreground/70 hover:text-secondary transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                Övriga tjänster
+              </Link>
+              <a href="https://instagram.com/jullegrau" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
                 @jullegrau
               </a>
-              <a 
-                href="https://instagram.com/marregrau" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/70 hover:text-secondary transition-colors"
-              >
+              <a href="https://instagram.com/marregrau" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
                 @marregrau
               </a>
-              <a 
-                href="https://tiktok.com/@grau.brothers" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-foreground/70 hover:text-secondary transition-colors"
-              >
+              <a href="https://tiktok.com/@grau.brothers" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/70 hover:text-secondary transition-colors">
                 TikTok
               </a>
             </div>
 
             <div className="flex items-center gap-2 text-primary-foreground/60 text-sm">
               <span>© {new Date().getFullYear()} Grau Brothers</span>
+              <Heart className="w-4 h-4 text-secondary" />
             </div>
           </div>
         </div>
