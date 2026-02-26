@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const subjects = ["Matte", "Fysik", "Svenska", "Engelska", "Övrigt"];
 const levels = ["Åk 7–9", "Gymnasiet"];
-const times = ["16:00", "17:00", "18:00", "19:00"];
+const times = ["16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"];
 
 const BookingSystem = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -71,7 +71,7 @@ const BookingSystem = () => {
                 Tack för din förfrågan!
               </h2>
               <p className="text-muted-foreground text-lg mb-8" role="status" aria-live="polite">
-                Tack! Vi återkommer inom 24 timmar för att bekräfta din gratis konsultation.
+                Vi återkommer inom 24 timmar för att bekräfta din gratis 20 minuters konsultation.
               </p>
               <Button
                 onClick={() => setIsSubmitted(false)}
@@ -94,43 +94,12 @@ const BookingSystem = () => {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Boka gratis konsultation (20 min)
+              Boka gratis konsultation
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Vi tar en kort kartläggning av nuläge och mål, och hittar ett upplägg som passar
-              (Motala vardagar, Ingarö helger eller online).
+              Fyll i formuläret så återkommer vi inom 24 timmar för att bekräfta en gratis
+              konsultation på 20 minuter. Jag kan vara på plats på Ingarö under helger och på plats i Motala till vardags.
             </p>
-          </div>
-
-          <div className="bg-card rounded-3xl shadow-soft border border-border p-8 md:p-10 mb-8">
-            <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">Vanliga frågor</h3>
-            <div className="space-y-5 text-muted-foreground">
-              <p>
-                <span className="text-foreground font-medium">Hur fungerar det online?</span>
-                <br />
-                Vi träffas digitalt och arbetar med samma struktur som på plats, med tydliga mål för varje pass.
-              </p>
-              <p>
-                <span className="text-foreground font-medium">Vilka ämnen kan du hjälpa med?</span>
-                <br />
-                Framför allt matematik och fysik, men även stöd i andra ämnen och studieteknik.
-              </p>
-              <p>
-                <span className="text-foreground font-medium">Hur snabbt märker man skillnad?</span>
-                <br />
-                Många upplever bättre struktur och mindre stress tidigt. Resultat i skolan kommer ofta stegvis.
-              </p>
-              <p>
-                <span className="text-foreground font-medium">Behöver föräldrar vara med?</span>
-                <br />
-                Det är valfritt, men en kort avstämning med förälder kan vara hjälpsam i början.
-              </p>
-              <p>
-                <span className="text-foreground font-medium">Hur bokar man?</span>
-                <br />
-                Fyll i formuläret nedan så återkopplar jag inom 24 timmar för att bekräfta din gratis konsultation.
-              </p>
-            </div>
           </div>
 
           <div className="bg-card rounded-3xl shadow-soft border border-border p-8 md:p-12">
@@ -307,7 +276,7 @@ const BookingSystem = () => {
                     </label>
                     <label className="flex items-center gap-2 cursor-pointer">
                       <input type="radio" name="mode" value="På plats" className="accent-secondary w-4 h-4" />
-                      <span className="text-sm text-foreground">På plats (Motala)</span>
+                      <span className="text-sm text-foreground">På plats (Ingarö helger, Motala vardagar)</span>
                     </label>
                   </div>
                   {errors.mode && (
@@ -335,9 +304,9 @@ const BookingSystem = () => {
                 className="w-full mt-8 bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full text-lg py-6"
               >
                 <Send className="w-5 h-5 mr-2" />
-                Boka gratis konsultation
+                Skicka konsultationsförfrågan
               </Button>
-              <p className="text-muted-foreground text-sm mt-4 text-center">
+              <p className="mt-6 text-sm text-muted-foreground text-center">
                 Efter konsultationen föreslår jag ett upplägg (ofta 1 gång/vecka). Fakturering sker månadsvis i efterskott.
               </p>
             </form>

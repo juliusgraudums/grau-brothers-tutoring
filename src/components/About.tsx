@@ -1,97 +1,81 @@
-import { GraduationCap, Users, Heart, ListChecks, Route, Compass, CalendarClock } from "lucide-react";
+import { Quote, GraduationCap, Users, Heart } from "lucide-react";
 
 const About = () => {
   return (
     <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
+          {/* Section header */}
           <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">För vem passar det?</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Om Grau Brothers
+            </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              För elever och familjer som vill ha tydligare struktur, bättre studiero och tryggare stöd i skolan.
+              Jag är Julius Graudums, en av bröderna i Grau Brothers, med en passion för att hjälpa andra lyckas i skolan.
             </p>
           </div>
 
-          <div className="bg-card rounded-3xl shadow-medium p-8 md:p-12 mb-16 border border-border">
-            <ul className="space-y-4 text-foreground text-lg">
-              <li>• Högstadie- och gymnasieelever</li>
-              <li>• Elever som vill höja sina betyg</li>
-              <li>• Elever som saknar struktur eller motivation</li>
-              <li>• Elever som vill känna sig tryggare inför prov</li>
-            </ul>
-          </div>
-
-          <div className="text-center mb-10">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Så går det till</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
-              <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-                <ListChecks className="w-7 h-7 text-secondary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">1. Kort kartläggning</h3>
-              <p className="text-muted-foreground">Vi börjar med mål, nuläge och vilka utmaningar som gör skolarbetet svårt just nu.</p>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
-              <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-                <Route className="w-7 h-7 text-secondary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">2. Personlig plan</h3>
-              <p className="text-muted-foreground">Du får en tydlig plan med kontinuerliga träffar, studieteknik och stöd i de ämnen du behöver.</p>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
-              <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-                <Compass className="w-7 h-7 text-secondary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">3. Uppföljning</h3>
-              <p className="text-muted-foreground">Vi följer upp, justerar upplägget och ser till att utvecklingen håller över tid.</p>
+          {/* Testimonial card */}
+          <div className="relative bg-card rounded-3xl shadow-medium p-8 md:p-12 mb-16 border border-border">
+            <Quote className="absolute top-8 left-8 w-12 h-12 text-secondary/30" />
+            <div className="relative z-10">
+              <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 pl-8">
+                "Julius Graudums har inte bara A i alla sina kurser han visar dessutom upp genuin 
+                förståelse för både matematik och fysik. Han har under kursernas gång ofta förklarat 
+                och hjälpt sina kompisar med stort tålamod. Julius har dessutom en inställning till 
+                skolan och studier som gör honom till en <span className="text-gradient font-semibold">perfekt studiecoach</span>."
+              </blockquote>
+              <footer className="pl-8 flex items-center gap-4">
+                <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center">
+                  <GraduationCap className="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Gymnasielärare</p>
+                  <p className="text-muted-foreground text-sm">Officiellt utlåtande</p>
+                </div>
+              </footer>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Features grid */}
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
               <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
                 <GraduationCap className="w-7 h-7 text-secondary" />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Om mig</h3>
-              <p className="text-muted-foreground mb-4">
-                Jag heter Julius Graudums och fick A i alla ämnen på gymnasiet, med fördjupning i matematik och fysik.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                Min elitsatsning i segling har lärt mig disciplin, målmedvetenhet och struktur – sådant som också gör stor
-                skillnad i studierna.
-              </p>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                Dokumenterad framgång
+              </h3>
               <p className="text-muted-foreground">
-                Mitt fokus är att hjälpa andra lyckas utifrån sina förutsättningar, inte att jämföra prestationer.
+                Jag har själv A i samtliga ämnen på gymnasiet, med djup förståelse 
+                för matematik, fysik och naturvetenskap.
               </p>
             </div>
 
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
               <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-                <CalendarClock className="w-7 h-7 text-secondary" />
+                <Users className="w-7 h-7 text-secondary" />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Upplägg & flexibilitet</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <Users className="w-5 h-5 text-secondary mt-0.5" />
-                  Sessioner är 60 minuter.
-                </li>
-                <li className="flex items-start gap-2">
-                  <Heart className="w-5 h-5 text-secondary mt-0.5" />
-                  Träffar kan ske hemma hos elev i Motala (vardagar) eller på Ingarö (helger), samt online.
-                </li>
-                <li className="flex items-start gap-2">
-                  <Users className="w-5 h-5 text-secondary mt-0.5" />
-                  Upplägget anpassas efter elevens behov och skolmål.
-                </li>
-                <li className="flex items-start gap-2">
-                  <Heart className="w-5 h-5 text-secondary mt-0.5" />
-                  Det kan vara löpande varje vecka eller intensivt inför prov.
-                </li>
-              </ul>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                Personlig approach
+              </h3>
+              <p className="text-muted-foreground">
+                Varje elev är unik. Jag anpassar undervisningen efter dina behov och 
+                din inlärningsstil.
+              </p>
+            </div>
+
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-medium transition-shadow">
+              <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
+                <Heart className="w-7 h-7 text-secondary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                Stort tålamod
+              </h3>
+              <p className="text-muted-foreground">
+                Jag tar mig tid att förklara tills du verkligen förstår. Inga dumma 
+                frågor – bara lärande.
+              </p>
             </div>
           </div>
         </div>
