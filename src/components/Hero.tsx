@@ -61,8 +61,8 @@ const Hero = () => {
               <p className="text-primary-foreground/60 text-sm mt-1">Våra betyg</p>
             </div>
             <div>
-              <p className="text-4xl font-display font-bold text-primary-foreground">100%</p>
-              <p className="text-primary-foreground/60 text-sm mt-1">Nöjda elever</p>
+              <p className="text-4xl font-display font-bold text-primary-foreground">1:1</p>
+              <p className="text-primary-foreground/60 text-sm mt-1">Personlig coaching</p>
             </div>
             <div>
               <p className="text-4xl font-display font-bold text-primary-foreground">∞</p>
