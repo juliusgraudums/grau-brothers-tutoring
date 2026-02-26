@@ -71,7 +71,7 @@ const BookingSystem = () => {
                 Tack för din förfrågan!
               </h2>
               <p className="text-muted-foreground text-lg mb-8" role="status" aria-live="polite">
-                Vi återkommer inom 24 timmar för att bekräfta tid.
+                Tack! Vi återkommer inom 24 timmar för att bekräfta din gratis konsultation.
               </p>
               <Button
                 onClick={() => setIsSubmitted(false)}
@@ -94,13 +94,43 @@ const BookingSystem = () => {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Boka läxhjälp
+              Boka gratis konsultation (20 min)
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Fyll i formuläret så återkommer vi inom 24 timmar för att bekräfta din tid.
-              Alla sessioner är 60 minuter och kan genomföras online eller på plats i Motala.{" "}
-              <span className="font-semibold text-foreground">300 kr/timme.</span>
+              Vi tar en kort kartläggning av nuläge och mål, och hittar ett upplägg som passar
+              (Motala vardagar, Ingarö helger eller online).
             </p>
+          </div>
+
+          <div className="bg-card rounded-3xl shadow-soft border border-border p-8 md:p-10 mb-8">
+            <h3 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">Vanliga frågor</h3>
+            <div className="space-y-5 text-muted-foreground">
+              <p>
+                <span className="text-foreground font-medium">Hur fungerar det online?</span>
+                <br />
+                Vi träffas digitalt och arbetar med samma struktur som på plats, med tydliga mål för varje pass.
+              </p>
+              <p>
+                <span className="text-foreground font-medium">Vilka ämnen kan du hjälpa med?</span>
+                <br />
+                Framför allt matematik och fysik, men även stöd i andra ämnen och studieteknik.
+              </p>
+              <p>
+                <span className="text-foreground font-medium">Hur snabbt märker man skillnad?</span>
+                <br />
+                Många upplever bättre struktur och mindre stress tidigt. Resultat i skolan kommer ofta stegvis.
+              </p>
+              <p>
+                <span className="text-foreground font-medium">Behöver föräldrar vara med?</span>
+                <br />
+                Det är valfritt, men en kort avstämning med förälder kan vara hjälpsam i början.
+              </p>
+              <p>
+                <span className="text-foreground font-medium">Hur bokar man?</span>
+                <br />
+                Fyll i formuläret nedan så återkopplar jag inom 24 timmar för att bekräfta din gratis konsultation.
+              </p>
+            </div>
           </div>
 
           <div className="bg-card rounded-3xl shadow-soft border border-border p-8 md:p-12">
@@ -305,8 +335,11 @@ const BookingSystem = () => {
                 className="w-full mt-8 bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full text-lg py-6"
               >
                 <Send className="w-5 h-5 mr-2" />
-                Skicka bokningsförfrågan
+                Boka gratis konsultation
               </Button>
+              <p className="text-muted-foreground text-sm mt-4 text-center">
+                Efter konsultationen föreslår jag ett upplägg (ofta 1 gång/vecka). Fakturering sker månadsvis i efterskott.
+              </p>
             </form>
           </div>
         </div>
