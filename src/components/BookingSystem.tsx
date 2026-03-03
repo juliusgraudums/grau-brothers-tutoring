@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,11 +8,61 @@ import { cn } from "@/lib/utils";
 
 const subjects = ["Matte", "Fysik", "Svenska", "Engelska", "Övrigt"];
 const levels = ["Åk 7–9", "Gymnasiet"];
-const times = ["16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00"];
+
+type TimeRange = [start: string, end: string];
+
+const availabilityConfig: Record<string, TimeRange[]> = {
+  // Så här justerar du tider framöver:
+  // 1) Lägg till/ändra datum i formatet YYYY-MM-DD.
+  // 2) Lägg in ett eller flera intervall ["HH:MM", "HH:MM"].
+  // 3) Alla tider i formuläret skapas automatiskt var 30:e minut.
+  "2026-03-03": [["15:30", "17:30"], ["20:00", "22:00"]],
+  "2026-03-04": [["13:00", "15:00"], ["16:30", "22:00"]],
+  "2026-03-05": [["09:00", "10:30"], ["17:00", "22:00"]],
+  "2026-03-06": [["08:00", "13:00"]],
+  "2026-03-07": [["09:00", "17:30"]],
+  "2026-03-08": [["09:00", "17:30"]],
+};
+
+const pad = (value: number) => value.toString().padStart(2, "0");
+
+const toMinutes = (time: string) => {
+  const [hour, minute] = time.split(":").map(Number);
+  return hour * 60 + minute;
+};
+
+const createTimesFromRange = (start: string, end: string) => {
+  const slots: string[] = [];
+  let totalMinutes = toMinutes(start);
+  const endTotalMinutes = toMinutes(end);
+
+  while (totalMinutes <= endTotalMinutes) {
+    const hour = Math.floor(totalMinutes / 60);
+    const minute = totalMinutes % 60;
+    slots.push(`${pad(hour)}:${pad(minute)}`);
+    totalMinutes += 30;
+  }
+
+  return slots;
+};
+
+const availabilityByDate = Object.fromEntries(
+  Object.entries(availabilityConfig).map(([date, ranges]) => [
+    date,
+    ranges.flatMap(([start, end]) => createTimesFromRange(start, end)),
+  ])
+) as Record<string, string[]>;
 
 const BookingSystem = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const availableDates = Object.keys(availabilityByDate);
+  const availableTimes = useMemo(() => {
+    if (!selectedDate) return [];
+    return availabilityByDate[selectedDate] ?? [];
+  }, [selectedDate]);
 
   const validate = (form: HTMLFormElement): boolean => {
     const data = new FormData(form);
@@ -51,10 +101,12 @@ const BookingSystem = () => {
       .then(() => {
         setIsSubmitted(true);
         form.reset();
+        setSelectedDate("");
       })
       .catch(() => {
         setIsSubmitted(true);
         form.reset();
+        setSelectedDate("");
       });
   };
 
@@ -226,6 +278,30 @@ const BookingSystem = () => {
                   )}
                 </div>
 
+                {/* Preferred date */}
+                <div className="space-y-2">
+                  <Label htmlFor="preferred_date" className="flex items-center gap-2">
+                    <CalendarCheck className="w-4 h-4 text-secondary" />
+                    Önskat datum
+                  </Label>
+                  <select
+                    id="preferred_date"
+                    name="preferred_date"
+                    value={selectedDate}
+                    onChange={(event) => event.target.value !== selectedDate && setSelectedDate(event.target.value)}
+                    className={cn(
+                      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                      "disabled:cursor-not-allowed disabled:opacity-50"
+                    )}
+                  >
+                    <option value="" disabled>Välj datum...</option>
+                    {availableDates.map((date) => (
+                      <option key={date} value={date}>{date}</option>
+                    ))}
+                  </select>
+                </div>
+
                 {/* Preferred time */}
                 <div className="space-y-2">
                   <Label htmlFor="preferred_time" className="flex items-center gap-2">
@@ -236,31 +312,18 @@ const BookingSystem = () => {
                     id="preferred_time"
                     name="preferred_time"
                     defaultValue=""
+                    disabled={!selectedDate}
                     className={cn(
                       "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                       "disabled:cursor-not-allowed disabled:opacity-50"
                     )}
                   >
-                    <option value="" disabled>Välj tid...</option>
-                    {times.map((t) => (
-                      <option key={t} value={t}>{t}</option>
+                    <option value="" disabled>{selectedDate ? "Välj tid..." : "Välj datum först..."}</option>
+                    {availableTimes.map((t) => (
+                      <option key={`${selectedDate}-${t}`} value={t}>{t}</option>
                     ))}
                   </select>
-                </div>
-
-                {/* Preferred date */}
-                <div className="space-y-2">
-                  <Label htmlFor="preferred_date" className="flex items-center gap-2">
-                    <CalendarCheck className="w-4 h-4 text-secondary" />
-                    Önskat datum
-                  </Label>
-                  <Input
-                    id="preferred_date"
-                    name="preferred_date"
-                    type="date"
-                    min={new Date().toISOString().split("T")[0]}
-                  />
                 </div>
 
                 {/* Mode */}
