@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -6,6 +7,15 @@ import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 
 const Laxhjalp = () => {
+  useEffect(() => {
+    if (window.location.hash !== "#booking") return;
+
+    const bookingSection = document.getElementById("booking");
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: "auto", block: "start" });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Seo
