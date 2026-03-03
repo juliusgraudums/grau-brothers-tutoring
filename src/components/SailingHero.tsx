@@ -30,7 +30,7 @@ const SailingHero = () => {
           <div className="animate-slide-up space-y-4" style={{ animationDelay: "0.2s" }}>
             <div className="flex justify-center">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold" asChild>
-                <a href="/laxhjalp#booking">
+                <a href="/tjanster/laxhjalp#booking">
                   Boka konsultation
                   <CalendarCheck className="ml-2 w-5 h-5" />
                 </a>
