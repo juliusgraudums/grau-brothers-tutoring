@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Anchor, Sailboat } from "lucide-react";
+import { ArrowRight, Anchor, CalendarCheck, Sailboat } from "lucide-react";
 import { Link } from "react-router-dom";
 import sailingAction from "@/assets/sailing-action.jpeg";
 
@@ -28,6 +28,14 @@ const SailingHero = () => {
           </p>
 
           <div className="animate-slide-up space-y-4" style={{ animationDelay: "0.2s" }}>
+            <div className="flex justify-center">
+              <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-glow text-lg px-8 py-6 rounded-full font-semibold" asChild>
+                <a href="/tjanster/laxhjalp#booking">
+                  Boka konsultation
+                  <CalendarCheck className="ml-2 w-5 h-5" />
+                </a>
+              </Button>
+            </div>
             <div className="flex justify-center">
               <Button
                 variant="outline"
