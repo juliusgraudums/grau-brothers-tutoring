@@ -11,17 +11,15 @@ const levels = ["Åk 7–9", "Gymnasiet"];
 
 type TimeRange = [start: string, end: string];
 
-const availabilityConfig: Record<string, TimeRange[]> = {
-  // Så här justerar du tider framöver:
-  // 1) Lägg till/ändra datum i formatet YYYY-MM-DD.
-  // 2) Lägg in ett eller flera intervall ["HH:MM", "HH:MM"].
-  // 3) Alla tider i formuläret skapas automatiskt var 30:e minut.
-  "2026-03-03": [["15:30", "17:30"], ["20:00", "22:00"]],
-  "2026-03-04": [["13:00", "15:00"], ["16:30", "22:00"]],
-  "2026-03-05": [["09:00", "10:30"], ["17:00", "22:00"]],
-  "2026-03-06": [["08:00", "13:00"]],
-  "2026-03-07": [["09:00", "17:30"]],
-  "2026-03-08": [["09:00", "17:30"]],
+const weekdayAvailability: Record<number, TimeRange[]> = {
+  // 0 = söndag, 1 = måndag, ... 6 = lördag
+  0: [["16:00", "21:00"]],
+  1: [["16:00", "21:00"]],
+  2: [["16:00", "21:00"]],
+  3: [["16:00", "21:00"]],
+  4: [["16:00", "21:00"]],
+  5: [["16:00", "21:00"]],
+  6: [["16:00", "21:00"]],
 };
 
 const pad = (value: number) => value.toString().padStart(2, "0");
@@ -46,12 +44,17 @@ const createTimesFromRange = (start: string, end: string) => {
   return slots;
 };
 
-const availabilityByDate = Object.fromEntries(
-  Object.entries(availabilityConfig).map(([date, ranges]) => [
-    date,
-    ranges.flatMap(([start, end]) => createTimesFromRange(start, end)),
-  ])
-) as Record<string, string[]>;
+const getDateKey = (dateString: string) => {
+  const [year, month, day] = dateString.split("-").map(Number);
+  return new Date(year, month - 1, day).getDay();
+};
+
+const getAvailableTimesForDate = (dateString: string) => {
+  const weekday = getDateKey(dateString);
+  const ranges = weekdayAvailability[weekday] ?? [];
+
+  return ranges.flatMap(([start, end]) => createTimesFromRange(start, end));
+};
 
 const BookingSystem = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,7 +63,7 @@ const BookingSystem = () => {
 
   const availableTimes = useMemo(() => {
     if (!selectedDate) return [];
-    return availabilityByDate[selectedDate] ?? [];
+    return getAvailableTimesForDate(selectedDate);
   }, [selectedDate]);
 
   const validate = (form: HTMLFormElement): boolean => {
@@ -310,7 +313,7 @@ const BookingSystem = () => {
                       "disabled:cursor-not-allowed disabled:opacity-50"
                     )}
                   >
-                    <option value="" disabled>{selectedDate ? "Välj tid..." : "Välj datum först..."}</option>
+                    <option value="" disabled>{!selectedDate ? "Välj datum först..." : availableTimes.length ? "Välj tid..." : "Inga tider tillgängliga"}</option>
                     {availableTimes.map((t) => (
                       <option key={`${selectedDate}-${t}`} value={t}>{t}</option>
                     ))}

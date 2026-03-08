@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const hasSolidBackground = isScrolled || isMobileMenuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,14 +28,14 @@ const Navbar = () => {
 
   const navTextClass = cn(
     "font-medium transition-colors hover:text-secondary",
-    isScrolled ? "text-foreground" : "text-primary-foreground"
+    hasSolidBackground ? "text-foreground" : "text-primary-foreground"
   );
 
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-soft py-2" : "bg-transparent py-4"
+        hasSolidBackground ? "bg-background/95 backdrop-blur-md shadow-soft py-2" : "bg-transparent py-4"
       )}
     >
       <div className="container mx-auto px-6">
@@ -95,7 +96,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={cn("md:hidden p-2", isScrolled ? "text-foreground" : "text-primary-foreground")}
+            className={cn("md:hidden p-2", hasSolidBackground ? "text-foreground" : "text-primary-foreground")}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -106,20 +107,20 @@ const Navbar = () => {
             <div className="flex flex-col gap-4">
               {isHome ? (
                 <>
-                  <button onClick={() => scrollTo("mission")} className={cn("font-medium text-left transition-colors hover:text-secondary", isScrolled ? "text-foreground" : "text-primary-foreground")}>
+                  <button onClick={() => scrollTo("mission")} className={cn("font-medium text-left transition-colors hover:text-secondary", hasSolidBackground ? "text-foreground" : "text-primary-foreground")}>
                     Vår resa
                   </button>
-                  <button onClick={() => scrollTo("about")} className={cn("font-medium text-left transition-colors hover:text-secondary", isScrolled ? "text-foreground" : "text-primary-foreground")}>
+                  <button onClick={() => scrollTo("about")} className={cn("font-medium text-left transition-colors hover:text-secondary", hasSolidBackground ? "text-foreground" : "text-primary-foreground")}>
                     Om oss
                   </button>
                 </>
               ) : (
-                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={cn("font-medium text-left transition-colors hover:text-secondary", isScrolled ? "text-foreground" : "text-primary-foreground")}>
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className={cn("font-medium text-left transition-colors hover:text-secondary", hasSolidBackground ? "text-foreground" : "text-primary-foreground")}>
                   Hem
                 </Link>
               )}
 
-              <Link to="/tjanster" onClick={() => setIsMobileMenuOpen(false)} className={cn("font-medium text-left transition-colors hover:text-secondary", isScrolled ? "text-foreground" : "text-primary-foreground")}>
+              <Link to="/tjanster" onClick={() => setIsMobileMenuOpen(false)} className={cn("font-medium text-left transition-colors hover:text-secondary", hasSolidBackground ? "text-foreground" : "text-primary-foreground")}>
                 Tjänster
               </Link>
               <div className="pl-4 flex flex-col gap-3">
