@@ -58,7 +58,6 @@ const BookingSystem = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [selectedDate, setSelectedDate] = useState("");
 
-  const availableDates = Object.keys(availabilityByDate);
   const availableTimes = useMemo(() => {
     if (!selectedDate) return [];
     return availabilityByDate[selectedDate] ?? [];
@@ -284,22 +283,14 @@ const BookingSystem = () => {
                     <CalendarCheck className="w-4 h-4 text-secondary" />
                     Önskat datum
                   </Label>
-                  <select
+                  <Input
                     id="preferred_date"
                     name="preferred_date"
+                    type="date"
                     value={selectedDate}
-                    onChange={(event) => event.target.value !== selectedDate && setSelectedDate(event.target.value)}
-                    className={cn(
-                      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                      "disabled:cursor-not-allowed disabled:opacity-50"
-                    )}
-                  >
-                    <option value="" disabled>Välj datum...</option>
-                    {availableDates.map((date) => (
-                      <option key={date} value={date}>{date}</option>
-                    ))}
-                  </select>
+                    onChange={(event) => setSelectedDate(event.target.value)}
+                    min={new Date().toISOString().split("T")[0]}
+                  />
                 </div>
 
                 {/* Preferred time */}
