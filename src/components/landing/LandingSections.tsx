@@ -34,10 +34,10 @@ const services = [
 ];
 
 const reasons = [
-  "Två bröder med samma driv: tydliga mål, bra förberedelser och fullt fokus i varje uppdrag.",
-  "Vi kombinerar elitidrottens disciplin med ett personligt och lyhört bemötande.",
-  "Du får raka besked, praktiska råd och stöd som går att använda direkt.",
-  "Vi bygger långsiktigt förtroende – många återkommer när nya behov dyker upp.",
+  "Vi är två bröder som bryr oss på riktigt och tar varje uppdrag personligt.",
+  "Du får tydliga råd och en plan som faktiskt går att följa i vardagen.",
+  "Vi är lätta att få tag på och återkopplar snabbt när du behöver hjälp.",
+  "Vårt mål är enkelt: att du ska känna dig trygg, förstå mer och komma framåt.",
 ];
 
 const sponsorshipPoints = [
@@ -69,7 +69,7 @@ const LandingSections = () => {
               <SectionHeader
                 eyebrow="Varför oss"
                 title="Vad som skiljer Grau Brothers"
-                subtitle="Vår resa i seglingen påverkar hur vi arbetar: strukturerat, fokuserat och med hög närvaro."
+                subtitle="Vi jobbar så som vi själva vill bli bemötta: tydligt, personligt och utan krångel."
                 centered={false}
               />
               <ul className="space-y-4 mt-8">
